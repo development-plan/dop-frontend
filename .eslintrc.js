@@ -1,9 +1,10 @@
 module.exports = {
   root: true,
-  extends: '@react-native-community',
+  extends: ['@react-native-community', 'airbnb-typescript'],
   rules: {
     "arrow-body-style": "off",
     "indent": "off",
+    "@typescript-eslint/indent": ["error", 4],
     "jsx-quotes": "off",
     "comma-dangle": "off",
     "object-curly-newline": "off",
