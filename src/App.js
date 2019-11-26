@@ -1,24 +1,15 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
-import Box from './components/Box';
-import { Fonts } from './Fonts';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import Main from './views/Main';
 
-const App = () => {
-    return (
-        <>
-            <StatusBar barStyle="dark-content" />
-            <SafeAreaView>
-                <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <View style={{ fontFamily: Fonts.NOTOSANSKR }}>
-                        <Box />
-                        <Box />
-                        <Box />
-                        <Box />
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
-        </>
-    );
-};
+const Nav = createStackNavigator(
+    {
+        Home: { screen: Main }
+    },
+    {
+        initialRouteName: 'Home'
+    }
+);
 
-export default App;
+export default createAppContainer(Nav);
