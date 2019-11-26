@@ -1,16 +1,19 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
+import Box from './components/Box';
+import { Fonts } from './Fonts';
 
-const App: () => React$Node = () => {
+const App = () => {
     return (
         <>
             <StatusBar barStyle="dark-content" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <View>
-                        <View>
-                            <Text>Hello World</Text>
-                        </View>
+                    <View style={{ fontFamily: Fonts.NOTOSANSKR }}>
+                        <Box />
+                        <Box />
+                        <Box />
+                        <Box />
                     </View>
                 </ScrollView>
             </SafeAreaView>
