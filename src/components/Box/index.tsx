@@ -7,8 +7,8 @@ import BoxContents from '../../atoms/Box/BoxContents';
 import BoxTag from '../../atoms/Box/BoxTag';
 
 const BoxStyle = styled.View`
-    margin: 10px;
-    border: #9e9e9e 1px solid;
+    margin: 10px 14px;
+    border: #bdbdbd 1px solid;
     background-color: #ffffff;
     border-radius: 6px;
 `;
@@ -31,7 +31,7 @@ const Box = () => {
         <>
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <View>
+                    <View style={{ backgroundColor: '#fafafa' }}>
                         <BoxStyle>
                             <WrapperStyle>
                                 <TopWrapperStyle>
