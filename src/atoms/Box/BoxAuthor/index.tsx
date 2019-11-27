@@ -14,10 +14,12 @@ interface BoxAuthorProps {
 }
 
 const BoxAuthor = (props: BoxAuthorProps) => {
+    const { profile, name } = props;
+
     return (
         <AuthorStyle>
             <Text style={{ fontFamily: Fonts.NOTOSANSKR }}>
-                {props.profile} {props.name}
+                {profile} {name}
             </Text>
         </AuthorStyle>
     );

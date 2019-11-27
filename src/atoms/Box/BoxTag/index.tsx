@@ -20,9 +20,11 @@ interface BoxTagProps {
 }
 
 const BoxTag = (props: BoxTagProps) => {
+    const { tag } = props;
+
     return (
         <TagStyle>
-            <TagTextStyle style={{ fontFamily: Fonts.NOTOSANSKR }}># {props.tag}</TagTextStyle>
+            <TagTextStyle style={{ fontFamily: Fonts.NOTOSANSKR }}># {tag}</TagTextStyle>
         </TagStyle>
     );
 };

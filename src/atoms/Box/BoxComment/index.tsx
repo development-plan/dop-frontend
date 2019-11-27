@@ -13,11 +13,11 @@ interface BoxCommentProps {
 }
 
 const BoxComment = (props: BoxCommentProps) => {
+    const { comment } = props;
+
     return (
         <CommentPreviewStyle>
-            <Text style={{ fontFamily: Fonts.NOTOSANSKR, color: '#bdbdbd' }}>
-                아이콘 {props.comment}
-            </Text>
+            <Text style={{ fontFamily: Fonts.NOTOSANSKR, color: '#bdbdbd' }}>아이콘 {comment}</Text>
         </CommentPreviewStyle>
     );
 };

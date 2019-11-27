@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Image, Text, View} from 'react-native';
 import styled from 'styled-components/native';
 import { Fonts } from '../../../Fonts';
 
@@ -21,12 +21,14 @@ interface BoxContentsProps {
 }
 
 const BoxContents = (props: BoxContentsProps) => {
+    const { title, children } = props;
+
     return (
         <View>
-            <TitleStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{props.title}</TitleStyle>
-            <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{props.children}</DescriptionStyle>
+            <TitleStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{title}</TitleStyle>
+            <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{children}</DescriptionStyle>
             <View style={{ width: 150, height: 150 }}>
-                <Text style={{ fontFamily: Fonts.NOTOSANSKR }}>(이미지)</Text>
+                <Text>이미지</Text>
             </View>
         </View>
     );
