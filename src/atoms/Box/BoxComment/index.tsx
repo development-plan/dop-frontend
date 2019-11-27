@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 import { Fonts } from '../../../Fonts';
 
 const CommentPreviewStyle = styled.View`
@@ -17,7 +19,9 @@ const BoxComment = (props: BoxCommentProps) => {
 
     return (
         <CommentPreviewStyle>
-            <Text style={{ fontFamily: Fonts.NOTOSANSKR, color: '#bdbdbd' }}>아이콘 {comment}</Text>
+            <Text style={{ fontFamily: Fonts.NOTOSANSKR, color: '#bdbdbd' }}>
+                <FontAwesomeIcon icon={faCommentAlt} size={12} color="#bdbdbd" /> {comment}
+            </Text>
         </CommentPreviewStyle>
     );
 };
