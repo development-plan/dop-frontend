@@ -1,18 +1,26 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
+import BoxData from '../structures/BoxData';
 
 const Home = () => {
+    const exampleData: BoxData = {
+        profile: '0',
+        name: 'ABC',
+        commentCount: 5,
+        title: '제목',
+        contents: '설명ㄴㅇㄹㄴ망롬나ㅣㅇ뢈ㄴ어로',
+        tags: ['안드로이드', '앱개발']
+    };
+
     return (
         <>
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <Box />
-                    <Box />
-                    <Box />
-                    <Box />
+                    <Box boxData={exampleData} />
+                    <Box boxData={exampleData} />
                 </ScrollView>
             </SafeAreaView>
         </>

@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import BoxAuthor from '../../atoms/Box/BoxAuthor';
 import BoxComment from '../../atoms/Box/BoxComment';
 import BoxContents from '../../atoms/Box/BoxContents';
+import BoxData from '../../structures/BoxData';
 import BoxTag from '../../atoms/Box/BoxTag';
 
 const BoxStyle = styled.View`
@@ -26,7 +27,14 @@ const TagWrapperStyle = styled.View`
     flex-direction: row;
 `;
 
-const Box = () => {
+interface BoxProps {
+    readonly boxData: BoxData;
+}
+
+const Box = (props: BoxProps) => {
+    const { boxData } = props;
+    const { profile, name, commentCount, title, contents, tags } = boxData;
+
     return (
         <>
             <SafeAreaView>
@@ -35,15 +43,16 @@ const Box = () => {
                         <BoxStyle>
                             <WrapperStyle>
                                 <TopWrapperStyle>
-                                    <BoxAuthor profile="{0}" name="ABC" />
-                                    <BoxComment comment="3" />
+                                    <BoxAuthor profile={profile} name={name} />
+                                    <BoxComment comment={commentCount} />
                                 </TopWrapperStyle>
 
-                                <BoxContents title="모바일 지도 앱을 만들어 보고 싶어요!">구글 지도 같은 앱 서비스를 만들고 싶은데.. 긴설명 긴설명 긴설명 긴설명 긴설명 긴설명</BoxContents>
+                                <BoxContents title={title}>{contents}</BoxContents>
 
                                 <TagWrapperStyle>
-                                    <BoxTag tag="안드로이드" />
-                                    <BoxTag tag="앱개발" />
+                                    {tags.map((x: string, index: number) => {
+                                        return <BoxTag key={index} tag={x} />;
+                                    })}
                                 </TagWrapperStyle>
                             </WrapperStyle>
                         </BoxStyle>

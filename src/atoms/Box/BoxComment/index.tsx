@@ -11,7 +11,7 @@ const CommentPreviewStyle = styled.View`
 `;
 
 interface BoxCommentProps {
-    readonly comment: string;
+    readonly comment: number;
 }
 
 const BoxComment = (props: BoxCommentProps) => {
