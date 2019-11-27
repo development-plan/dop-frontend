@@ -10,18 +10,25 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-native-fontawesome": "^0.1.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-gesture-handler": "^1.5.1",
     "react-native-reanimated": "^1.4.0",
     "react-native-screens": "^2.0.0-alpha.12",
+    "react-native-svg": "^9.13.3",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
+    "react-navigation-tabs": "^2.6.0",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "7.7.4",
     "@babel/runtime": "7.7.4",
+    "@fortawesome/fontawesome-common-types": "^0.2.25",
     "@react-native-community/eslint-config": "0.0.5",
     "@types/react": "^16.9.13",
     "@types/react-native": "^0.60.23",

@@ -1,30 +1,28 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
-import Box from '../components/Box';
+import { SafeAreaView, ScrollView, StatusBar, Text } from 'react-native';
+import { Fonts } from '../Fonts';
 
-const Main = () => {
+const Notice = () => {
     return (
         <>
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <Box />
-                    <Box />
-                    <Box />
-                    <Box />
+                    <Text>알림</Text>
                 </ScrollView>
             </SafeAreaView>
         </>
     );
 };
 
-Main.navigationOptions = {
-    title: 'logo',
+Notice.navigationOptions = {
+    title: '알림',
     headerTitleStyle: {
         textAlign: 'center',
         flex: 1,
-        fontSize: 24
+        fontSize: 24,
+        fontFamily: Fonts.NOTOSANSKR
     }
 };
 
-export default Main;
+export default Notice;
