@@ -8,7 +8,7 @@ import BoxTag from '../../atoms/Box/BoxTag';
 
 const BoxStyle = styled.View`
     margin: 10px 14px;
-    border: #bdbdbd 1px solid;
+    border: #bdbdbd 0.8px solid;
     background-color: #ffffff;
     border-radius: 6px;
 `;
