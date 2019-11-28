@@ -1,5 +1,4 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
 import styled from 'styled-components/native';
 import BoxAuthor from '../../atoms/Box/BoxAuthor';
 import BoxComment from '../../atoms/Box/BoxComment';
@@ -36,30 +35,22 @@ const Box = (props: BoxProps) => {
     const { profile, name, commentCount, title, contents, tags } = boxData;
 
     return (
-        <>
-            <SafeAreaView>
-                <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <View style={{ backgroundColor: '#fafafa' }}>
-                        <BoxStyle>
-                            <WrapperStyle>
-                                <TopWrapperStyle>
-                                    <BoxAuthor profile={profile} name={name} />
-                                    <BoxComment comment={commentCount} />
-                                </TopWrapperStyle>
+        <BoxStyle>
+            <WrapperStyle>
+                <TopWrapperStyle>
+                    <BoxAuthor profile={profile} name={name} />
+                    <BoxComment comment={commentCount} />
+                </TopWrapperStyle>
 
-                                <BoxContents title={title}>{contents}</BoxContents>
+                <BoxContents title={title}>{contents}</BoxContents>
 
-                                <TagWrapperStyle>
-                                    {tags.map((x: string, index: number) => {
-                                        return <BoxTag key={index} tag={x} />;
-                                    })}
-                                </TagWrapperStyle>
-                            </WrapperStyle>
-                        </BoxStyle>
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
-        </>
+                <TagWrapperStyle>
+                    {tags.map((x: string, index: number) => {
+                        return <BoxTag key={index} tag={x} />;
+                    })}
+                </TagWrapperStyle>
+            </WrapperStyle>
+        </BoxStyle>
     );
 };
 

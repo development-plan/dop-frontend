@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
 import BoxData from '../structures/BoxData';
@@ -19,8 +19,10 @@ const Home = () => {
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <Box boxData={exampleData} />
-                    <Box boxData={exampleData} />
+                    <View style={{ backgroundColor: '#fafafa' }}>
+                        <Box boxData={exampleData} />
+                        <Box boxData={exampleData} />
+                    </View>
                 </ScrollView>
             </SafeAreaView>
         </>
