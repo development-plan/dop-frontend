@@ -11,7 +11,7 @@ const HomeNav = createStackNavigator({
     Home: { screen: Home }
 });
 
-const NotificationNav = createStackNavigator({
+const NoticeNav = createStackNavigator({
     Notification: { screen: Notice }
 });
 
@@ -19,7 +19,7 @@ const Nav = createBottomTabNavigator(
     {
         Home: HomeNav,
         Search: { screen: Search },
-        Notification: NotificationNav,
+        Notice: NoticeNav,
         Account: { screen: Account }
     },
     {

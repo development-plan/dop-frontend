@@ -10,7 +10,7 @@ const Footer = (navigation: any, focused: boolean, tintColor: any) => {
         icon = faHome;
     } else if (routeName === 'Search') {
         icon = faCompass;
-    } else if (routeName === 'Notification') {
+    } else if (routeName === 'Notice') {
         icon = faBell;
     } else if (routeName === 'Account') {
         icon = faUser;
