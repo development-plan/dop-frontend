@@ -1,14 +1,28 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+// @ts-ignore
+import MasonryList from 'react-native-masonry-list';
 import { Fonts } from '../Fonts';
 
 const Search = () => {
+    const data = [
+        {
+            uri: 'http://via.placeholder.com/150.png'
+        },
+        {
+            uri: 'http://via.placeholder.com/150.png'
+        },
+        {
+            uri: 'http://via.placeholder.com/150.png'
+        }
+    ];
+
     return (
         <>
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <Text>검색</Text>
+                    <MasonryList images={data} />
                 </ScrollView>
             </SafeAreaView>
         </>
