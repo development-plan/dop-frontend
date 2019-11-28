@@ -12,13 +12,17 @@ const HomeNav = createStackNavigator({
 });
 
 const NoticeNav = createStackNavigator({
-    Notification: { screen: Notice }
+    Notice: { screen: Notice }
+});
+
+const SearchNav = createStackNavigator({
+    Search: { screen: Search }
 });
 
 const Nav = createBottomTabNavigator(
     {
         Home: HomeNav,
-        Search: { screen: Search },
+        Search: SearchNav,
         Notice: NoticeNav,
         Account: { screen: Account }
     },
