@@ -13,6 +13,7 @@ const MainTextStyle = styled.Text`
 const SubTextStyle = styled.Text`
     font-size: 12px;
     max-width: 68%;
+    color: #757575;
 `;
 
 interface NoticeContents {

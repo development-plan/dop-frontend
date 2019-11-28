@@ -1,12 +1,12 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
 import BoxData from '../structures/BoxData';
 
 const Home = () => {
     const exampleData: BoxData = {
-        profile: '0',
+        profile: 'http://via.placeholder.com/150.png',
         name: 'ABC',
         commentCount: 5,
         title: '제목',
@@ -20,10 +20,8 @@ const Home = () => {
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <View style={{ backgroundColor: '#fafafa' }}>
-                        <Box boxData={exampleData} />
-                        <Box boxData={exampleData} />
-                    </View>
+                    <Box boxData={exampleData} />
+                    <Box boxData={exampleData} />
                 </ScrollView>
             </SafeAreaView>
         </>

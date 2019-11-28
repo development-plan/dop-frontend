@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { Fonts } from '../../../Fonts';
-import BoxTag from "../BoxTag";
 
 const TitleStyle = styled.Text`
     font-size: 18px;
