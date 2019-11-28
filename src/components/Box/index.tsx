@@ -7,7 +7,7 @@ import BoxData from '../../structures/BoxData';
 import BoxTag from '../../atoms/Box/BoxTag';
 
 const BoxStyle = styled.View`
-    margin: 10px 14px;
+    margin: 10px 16px;
     border: #bdbdbd 0.8px solid;
     background-color: #ffffff;
     border-radius: 6px;
