@@ -6,9 +6,11 @@ import Footer from './components/Footer';
 import Search from './views/Search';
 import Account from './views/Account';
 import Notice from './views/Notice';
+import Post from './views/Post';
 
 const HomeNav = createStackNavigator({
-    Home: { screen: Home }
+    Home: { screen: Home },
+    Post: { screen: Post }
 });
 
 const NoticeNav = createStackNavigator({

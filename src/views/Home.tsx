@@ -1,10 +1,15 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { withNavigation } from 'react-navigation';
+import { Button, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
 import BoxData from '../structures/BoxData';
 
-const Home = () => {
+interface HomeProps {
+    readonly navigation: any;
+}
+
+const Home = (props: HomeProps) => {
     const exampleData: BoxData = {
         profile: 'http://via.placeholder.com/150.png',
         name: 'ABC',
@@ -30,6 +35,12 @@ const Home = () => {
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
+                    <Button
+                        title="글등록"
+                        onPress={() => {
+                            props.navigation.navigate('Post');
+                        }}
+                    />
                     <Box boxData={exampleData} />
                     <Box boxData={exampleData2} />
                 </ScrollView>
@@ -48,4 +59,4 @@ Home.navigationOptions = {
     }
 };
 
-export default Home;
+export default withNavigation(Home);
