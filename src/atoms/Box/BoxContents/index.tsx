@@ -1,7 +1,8 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { Fonts } from '../../../Fonts';
+import BoxTag from "../BoxTag";
 
 const TitleStyle = styled.Text`
     font-size: 18px;
@@ -15,21 +16,32 @@ const DescriptionStyle = styled.Text`
     color: #757575;
 `;
 
+const ImageWrapperStyle = styled.View`
+    flex-direction: row;
+`;
+
+const ImageStyle = styled.Image`
+    margin: 10px 10px 10px 0;
+`;
+
 interface BoxContentsProps {
     readonly title: string;
+    readonly images: string[];
     readonly children: string;
 }
 
 const BoxContents = (props: BoxContentsProps) => {
-    const { title, children } = props;
+    const { title, images, children } = props;
 
     return (
         <View>
             <TitleStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{title}</TitleStyle>
             <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{children}</DescriptionStyle>
-            <View style={{ width: 150, height: 150 }}>
-                <Text>이미지</Text>
-            </View>
+            <ImageWrapperStyle>
+                {images.map((x: string, index: number) => {
+                    return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />
+                })}
+            </ImageWrapperStyle>
         </View>
     );
 };

@@ -32,7 +32,7 @@ interface BoxProps {
 
 const Box = (props: BoxProps) => {
     const { boxData } = props;
-    const { profile, name, commentCount, title, contents, tags } = boxData;
+    const { profile, name, commentCount, title, contents, tags, images } = boxData;
 
     return (
         <BoxStyle>
@@ -42,7 +42,7 @@ const Box = (props: BoxProps) => {
                     <BoxComment comment={commentCount} />
                 </TopWrapperStyle>
 
-                <BoxContents title={title}>{contents}</BoxContents>
+                <BoxContents title={title} images={images}>{contents}</BoxContents>
 
                 <TagWrapperStyle>
                     {tags.map((x: string, index: number) => {

@@ -5,6 +5,7 @@ interface BoxData {
     readonly title: string;
     readonly contents: string;
     readonly tags: string[];
+    readonly images: string[];
 }
 
 export default BoxData;

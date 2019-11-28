@@ -11,7 +11,8 @@ const Home = () => {
         commentCount: 5,
         title: '제목',
         contents: '설명ㄴㅇㄹㄴ망롬나ㅣㅇ뢈ㄴ어로',
-        tags: ['안드로이드', '앱개발']
+        tags: ['안드로이드', '앱개발'],
+        images: ['http://via.placeholder.com/150.png', 'http://via.placeholder.com/150.png', 'http://via.placeholder.com/150.png']
     };
 
     return (
