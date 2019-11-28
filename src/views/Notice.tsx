@@ -18,9 +18,10 @@ const Notice = () => {
 Notice.navigationOptions = {
     title: '알림',
     headerTitleStyle: {
-        fontSize: 24,
+        fontSize: 26,
         fontWeight: 'bold',
-        fontFamily: Fonts.NOTOSANSKR
+        fontFamily: Fonts.NOTOSANSKR,
+        marginLeft: 20
     }
 };
 
