@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
 import axios from 'axios';
 import styled from 'styled-components/native';
 import { Fonts } from '../Fonts';
@@ -19,8 +19,10 @@ const Search = () => {
     const searchTextState = useState<string>('');
     const [posts, setPost] = useState([]);
     const [loading, setLoading] = useState<boolean>(false);
+    const [isFailed, setBeFail] = useState<boolean>(false);
 
     const onSubmitEditing = () => {
+        setBeFail(false);
         setLoading(true);
         setPost([]);
 
@@ -32,6 +34,12 @@ const Search = () => {
         axios
             .get(`http://kbsc.inudevs.com/search/${searchTextState[0]}`, config)
             .then((res) => {
+                if (res.data.result.length === 0) {
+                    setBeFail(true);
+                    setLoading(false);
+                    return;
+                }
+
                 res.data.result.forEach((i) => {
                     axios.get(`http://kbsc.inudevs.com/post/${i.id}`, config).then((res) => {
                         setPost((post) => [...post, res.data.post]);
@@ -50,7 +58,8 @@ const Search = () => {
             <SafeAreaView>
                 <SearchBar searchTextState={searchTextState} onSubmitEditing={onSubmitEditing} />
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    {loading ? <LoadingText>로딩중</LoadingText> : <></>}
+                    {isFailed ? <LoadingText>찾으시는 자료가 존재하지 않습니다.</LoadingText> : <></>}
+                    {loading ? <LoadingText>개발을 위해 모험을 떠나는 중...</LoadingText> : <></>}
                     {posts.map((x: PostPayload) => {
                         return <Box key={x.id} boxData={x} />;
                     })}
