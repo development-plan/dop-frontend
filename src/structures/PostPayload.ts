@@ -1,6 +1,6 @@
 import AuthorPayload from './AuthorPayload';
 
-interface BoxPayload {
+interface PostPayload {
     readonly author: AuthorPayload;
     readonly name: string;
     readonly answers: [];
@@ -11,4 +11,4 @@ interface BoxPayload {
     readonly id: string;
 }
 
-export default BoxPayload;
+export default PostPayload;

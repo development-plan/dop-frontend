@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import BoxAuthor from '../../atoms/Box/BoxAuthor';
 import BoxComment from '../../atoms/Box/BoxComment';
 import BoxContents from '../../atoms/Box/BoxContents';
-import BoxPayload from '../../structures/BoxPayload';
+import PostPayload from '../../structures/PostPayload';
 import BoxTag from '../../atoms/Box/BoxTag';
 
 const BoxStyle = styled.View`
@@ -27,7 +27,7 @@ const TagWrapperStyle = styled.View`
 `;
 
 interface BoxProps {
-    readonly boxData: BoxPayload;
+    readonly boxData: PostPayload;
 }
 
 const Box = (props: BoxProps) => {
