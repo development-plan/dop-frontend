@@ -31,20 +31,13 @@ interface BoxContentsProps {
 
 const BoxContents = (props: BoxContentsProps) => {
     const { title, images, children } = props;
-    const [loadiing, setLoading] = useState(false);
-
-    useEffect(() => {
-        images.splice(3);
-        setLoading(true);
-    }, [images]);
 
     return (
         <View>
             <TitleStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{title}</TitleStyle>
             <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{children}</DescriptionStyle>
             <ImageWrapperStyle>
-                {loadiing
-                    && images.map((x, index) => {
+                {images.map((x, index) => {
                         return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />;
                     })}
             </ImageWrapperStyle>

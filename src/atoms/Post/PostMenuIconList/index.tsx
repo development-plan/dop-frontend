@@ -19,12 +19,12 @@ const PostMenuIconList = (props: PostMenuIconListProps) => {
 
     return (
         <ButtonListStyle>
-            <TouchableOpacity onPress={onCameraClick}>
-                <FontAwesomeIcon icon={faCamera} size={20} color="white" style={{ marginLeft: 12, marginRight: 12 }} />
-            </TouchableOpacity>
+            {/*<TouchableOpacity onPress={onCameraClick}>*/}
+            {/*    <FontAwesomeIcon icon={faCamera} size={20} color="white" style={{ marginLeft: 12 }} />*/}
+            {/*</TouchableOpacity>*/}
 
             <TouchableOpacity onPress={onHashTagClick}>
-                <FontAwesomeIcon icon={faHashtag} size={20} color="white" style={{ marginRight: 12 }} />
+                <FontAwesomeIcon icon={faHashtag} size={20} color="white" style={{ marginLeft: 12 }} />
             </TouchableOpacity>
         </ButtonListStyle>
     );
