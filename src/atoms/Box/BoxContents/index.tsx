@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { Fonts } from '../../../Fonts';
@@ -31,15 +31,22 @@ interface BoxContentsProps {
 
 const BoxContents = (props: BoxContentsProps) => {
     const { title, images, children } = props;
+    const [loadiing, setLoading] = useState(false);
+
+    useEffect(() => {
+        images.splice(3);
+        setLoading(true);
+    }, [images]);
 
     return (
         <View>
             <TitleStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{title}</TitleStyle>
             <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{children}</DescriptionStyle>
             <ImageWrapperStyle>
-                {images.map((x, index) => {
-                    return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />
-                })}
+                {loadiing
+                    && images.map((x, index) => {
+                        return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />;
+                    })}
             </ImageWrapperStyle>
         </View>
     );
