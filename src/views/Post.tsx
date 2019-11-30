@@ -60,7 +60,7 @@ const Post = ({ navigation }: any) => {
 
     useEffect(() => {
         navigation.setParams({ postUpload: upload });
-    }, [navigation, upload]);
+    }, []);
 
     const onCameraClick = () => {
         Alert.alert('이미지 추가');
