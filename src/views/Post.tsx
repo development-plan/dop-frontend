@@ -30,15 +30,20 @@ const Post = ({ navigation }: any) => {
     const contentsState = useState<string>('');
     const tagsState = useState<string[]>([]);
     const modalOpenState = useState<boolean>(false);
-    const [title] = titleState;
-    const [content] = contentsState;
-    const [tags] = tagsState;
+
+    const onCameraClick = () => {
+        Alert.alert('이미지 추가');
+    };
+
+    const onHashTagClick = () => {
+        modalOpenState[1](true);
+    };
 
     const upload = () => {
         const body = {
-            title,
-            content,
-            tags,
+            title: titleState[0],
+            content: contentsState[0],
+            tags: tagsState[0],
             images: []
         };
 
@@ -60,15 +65,7 @@ const Post = ({ navigation }: any) => {
 
     useEffect(() => {
         navigation.setParams({ postUpload: upload });
-    }, []);
-
-    const onCameraClick = () => {
-        Alert.alert('이미지 추가');
-    };
-
-    const onHashTagClick = () => {
-        modalOpenState[1](true);
-    };
+    }, [titleState[0], contentsState[0]]);
 
     return (
         <>
