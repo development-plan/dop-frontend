@@ -25,8 +25,8 @@ const Nav = createBottomTabNavigator(
     {
         Home: HomeNav,
         Search: SearchNav,
-        Notice: NoticeNav,
-        Account: { screen: Account }
+        Notice: NoticeNav
+        // Account: { screen: Account }
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({

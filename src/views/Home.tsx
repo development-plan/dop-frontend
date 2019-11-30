@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { withNavigation } from 'react-navigation';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
 import PostPayload from '../structures/PostPayload';
@@ -40,9 +40,8 @@ const Home = (props: HomeProps) => {
                         return <Box key={x.id} boxData={x} />;
                     })}
                 </ScrollView>
-
-                <FloatingButton onPress={() => props.navigation.navigate('Post')} />
             </SafeAreaView>
+            <FloatingButton onPress={() => props.navigation.navigate('Post')} />
         </>
     );
 };
