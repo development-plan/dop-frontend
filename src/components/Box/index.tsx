@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import BoxAuthor from '../../atoms/Box/BoxAuthor';
 import BoxComment from '../../atoms/Box/BoxComment';
 import BoxContents from '../../atoms/Box/BoxContents';
-import BoxData from '../../structures/BoxData';
+import BoxPayload from '../../structures/BoxPayload';
 import BoxTag from '../../atoms/Box/BoxTag';
 
 const BoxStyle = styled.View`
@@ -27,22 +27,23 @@ const TagWrapperStyle = styled.View`
 `;
 
 interface BoxProps {
-    readonly boxData: BoxData;
+    readonly boxData: BoxPayload;
 }
 
 const Box = (props: BoxProps) => {
     const { boxData } = props;
-    const { profile, name, commentCount, title, contents, tags, images } = boxData;
+    const { author, answers, title, content, tags, images } = boxData;
+    const { image, nickname } = author;
 
     return (
         <BoxStyle>
             <WrapperStyle>
                 <TopWrapperStyle>
-                    <BoxAuthor profile={profile} name={name} />
-                    <BoxComment comment={commentCount} />
+                    <BoxAuthor profile={image} name={nickname} />
+                    <BoxComment comment={answers.length} />
                 </TopWrapperStyle>
 
-                <BoxContents title={title} images={images}>{contents}</BoxContents>
+                <BoxContents title={title} images={images}>{content}</BoxContents>
 
                 <TagWrapperStyle>
                     {tags.map((x: string, index: number) => {
