@@ -13,6 +13,7 @@ const DescriptionStyle = styled.Text`
     width: 80%;
     font-size: 14px;
     color: #757575;
+    margin-bottom: 10px;
 `;
 
 const ImageWrapperStyle = styled.View`
@@ -20,7 +21,7 @@ const ImageWrapperStyle = styled.View`
 `;
 
 const ImageStyle = styled.Image`
-    margin: 10px 10px 10px 0;
+    margin: 0 10px 10px 0;
 `;
 
 interface BoxContentsProps {
