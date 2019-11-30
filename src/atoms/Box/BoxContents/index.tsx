@@ -37,7 +37,7 @@ const BoxContents = (props: BoxContentsProps) => {
             <TitleStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{title}</TitleStyle>
             <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{children}</DescriptionStyle>
             <ImageWrapperStyle>
-                {images.map((x: string, index: number) => {
+                {images.map((x, index) => {
                     return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />
                 })}
             </ImageWrapperStyle>
