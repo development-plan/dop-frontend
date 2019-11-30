@@ -65,7 +65,8 @@ const Post = ({ navigation }: any) => {
 
     useEffect(() => {
         navigation.setParams({ postUpload: upload });
-    }, [titleState[0], contentsState[0]]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [titleState[0], contentsState[0], tagsState[0]]);
 
     return (
         <>
