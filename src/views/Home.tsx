@@ -47,7 +47,7 @@ const Home = (props: HomeProps) => {
 };
 
 Home.navigationOptions = {
-    title: 'logo',
+    title: 'DOP',
     headerTitleStyle: {
         textAlign: 'center',
         flex: 1,

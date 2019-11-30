@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import BoxAuthor from '../../atoms/Box/BoxAuthor';
 import BoxComment from '../../atoms/Box/BoxComment';
-import BoxContents from '../../atoms/Box/BoxContents';
+import BoxContents from './BoxContents';
 import PostPayload from '../../structures/PostPayload';
 import BoxTag from '../../atoms/Box/BoxTag';
 

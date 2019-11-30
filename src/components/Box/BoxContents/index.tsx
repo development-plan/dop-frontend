@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { Fonts } from '../../../Fonts';
@@ -38,8 +38,8 @@ const BoxContents = (props: BoxContentsProps) => {
             <DescriptionStyle style={{ fontFamily: Fonts.NOTOSANSKR }}>{children}</DescriptionStyle>
             <ImageWrapperStyle>
                 {images.map((x, index) => {
-                        return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />;
-                    })}
+                    return <ImageStyle key={index} source={{ uri: x }} style={{ width: 100, height: 100 }} />;
+                })}
             </ImageWrapperStyle>
         </View>
     );
