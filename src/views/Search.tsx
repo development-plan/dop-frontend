@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import axios from 'axios';
 import styled from 'styled-components/native';
-import { Fonts } from '../Fonts';
+import {Fonts} from '../Fonts';
 import SearchBar from '../components/SearchBar';
 import PostPayload from '../structures/PostPayload';
 import Box from '../components/Box';
@@ -21,7 +21,7 @@ const Search = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [isFailed, setBeFail] = useState<boolean>(false);
 
-    const onSubmitEditing = () => {
+    const onSubmitEditing = async () => {
         setBeFail(false);
         setLoading(true);
         setPost([]);
@@ -31,25 +31,18 @@ const Search = () => {
                 Authorization: JWT_TOKEN
             }
         };
-        axios
-            .get(`http://kbsc.inudevs.com/search/${searchTextState[0]}`, config)
-            .then((res) => {
-                if (res.data.result.length === 0) {
-                    setBeFail(true);
-                    setLoading(false);
-                    return;
-                }
+        const res = await axios.get(`http://kbsc.inudevs.com/search/${searchTextState[0]}`, config);
 
-                res.data.result.forEach((i) => {
-                    axios.get(`http://kbsc.inudevs.com/post/${i.id}`, config).then((res) => {
-                        setPost((post) => [...post, res.data.post]);
-                        setLoading(false);
-                    });
-                });
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        if (res.data.result.length === 0) {
+            setBeFail(true);
+            setLoading(false);
+            return;
+        }
+
+        const ress = await axios.get(`http://kbsc.inudevs.com/post/${res.data.result[0].id}`, config);
+        setPost((prevPosts) => [...prevPosts, ress.data.post]);
+
+        setLoading(false);
     };
 
     return (
@@ -60,6 +53,7 @@ const Search = () => {
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
                     {isFailed ? <LoadingText>찾으시는 자료가 존재하지 않습니다.</LoadingText> : <></>}
                     {loading ? <LoadingText>개발을 위해 모험을 떠나는 중...</LoadingText> : <></>}
+
                     {posts.map((x: PostPayload) => {
                         return <Box key={x.id} boxData={x} />;
                     })}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { withNavigation } from 'react-navigation';
-import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import { NavigationEvents, withNavigation } from 'react-navigation';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
 import PostPayload from '../structures/PostPayload';
@@ -15,7 +15,7 @@ interface HomeProps {
 const Home = (props: HomeProps) => {
     const [posts, setPost] = useState([]);
 
-    useEffect(() => {
+    const refreshPost = () => {
         const config = {
             headers: {
                 Authorization: JWT_TOKEN
@@ -24,15 +24,25 @@ const Home = (props: HomeProps) => {
         axios
             .get('http://kbsc.inudevs.com/post', config)
             .then((res) => {
+                setPost([]);
                 setPost(res.data.posts);
             })
             .catch((err) => {
                 console.log(err);
             });
+    };
+
+    useEffect(() => {
+        refreshPost();
     }, []);
 
     return (
         <>
+            <NavigationEvents
+                onDidFocus={(payload) => {
+                    refreshPost();
+                }}
+            />
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
