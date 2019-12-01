@@ -38,11 +38,7 @@ const Home = (props: HomeProps) => {
 
     return (
         <>
-            <NavigationEvents
-                onDidFocus={(payload) => {
-                    refreshPost();
-                }}
-            />
+            <NavigationEvents onDidFocus={() => refreshPost()} />
             <StatusBar barStyle="dark-content" backgroundColor="white" />
             <SafeAreaView>
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
