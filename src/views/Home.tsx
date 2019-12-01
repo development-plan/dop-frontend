@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavigationEvents, withNavigation } from 'react-navigation';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { Alert, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import NetInfo from '@react-native-community/netinfo';
 import Box from '../components/Box';
 import { Fonts } from '../Fonts';
 import PostPayload from '../structures/PostPayload';
@@ -33,6 +34,11 @@ const Home = (props: HomeProps) => {
     };
 
     useEffect(() => {
+        NetInfo.fetch().then((state) => {
+            console.log(state.isConnected);
+            if (!state.isConnected) Alert.alert('인터넷 연결에 실패하였습니다.', '서비스 사용을 위해서는 인터넷 연결이 필요합니다.');
+        });
+
         refreshPost();
     }, []);
 
